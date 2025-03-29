@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+    <meta charset="UTF-8">
+    <title>Add New Fighter Jet</title>
+</head>
+<body>
+<h1>Add New Fighter Jet</h1>
+<form th:action="@{/fighterjets/add}" th:object="${fighterJet}" method="post">
+    <label>Jet Name: <input type="text" th:field="*{jetName}" /></label><br>
+    <label>Code Name: <input type="text" th:field="*{codeName}" /></label><br>
+    <label>Country of Origin: <input type="text" th:field="*{countryOfOrigin}" /></label><br>
+    <label>Type: <input type="text" th:field="*{type}" /></label><br>
+    <label>Armament Configurations: <input type="text" th:field="*{armamentConfigurations}" /></label><br>
+    <label>Picture URL: <input type="text" th:field="*{picture}" /></label><br>
+    <button type="submit">Add</button>
+</form>
+<br>
+<a th:href="@{/fighterjets/list}">Back to List</a>
+</body>
+</html>

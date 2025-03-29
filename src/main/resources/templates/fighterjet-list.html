@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <meta charset="UTF-8">
+    <title>Fighter Jets List</title>
+</head>
+<body>
+<h1>Fighter Jets List</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Jet Name</th>
+        <th>Code Name</th>
+        <th>Country of Origin</th>
+        <th>Type</th>
+        <th>Armament Configurations</th>
+        <th>Picture</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="jet : ${jets}">
+        <td th:text="${jet.id}"></td>
+        <td th:text="${jet.jetName}"></td>
+        <td th:text="${jet.codeName}"></td>
+        <td th:text="${jet.countryOfOrigin}"></td>
+        <td th:text="${jet.type}"></td>
+        <td th:text="${jet.armamentConfigurations}"></td>
+        <td>
+            <img th:if="${jet.picture != null and jet.picture != ''}" th:src="${jet.picture}" alt="Fighter Jet Image" width="100"/>
+            <span th:if="${jet.picture == null or jet.picture == ''}">No Image</span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a th:href="@{/fighterjets/add}">Add New Fighter Jet</a>
+<br>
+<a th:href="@{/}">Home</a>
+</body>
+</html>
